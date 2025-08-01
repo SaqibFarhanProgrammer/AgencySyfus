@@ -10,7 +10,7 @@ import work1 from "../assets/images/work (6).jpeg"
 const Projects = () => {
     return (
         <div
-            className='h-screen w-full'
+            className='h-screen min-w-full'
         >
 
 
