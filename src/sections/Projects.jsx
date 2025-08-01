@@ -10,9 +10,11 @@ import work1 from "../assets/images/work (6).jpeg"
 const Projects = () => {
     return (
         <div
-            className='h-screen min-w-full'
+            className='h-screen min-w-full flex flex-col'
         >
+            <div className="works h-{100%] w-[100%]  ">
 
+            </div>
 
         </div>
     )
