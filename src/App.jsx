@@ -5,11 +5,10 @@ import SmoothScroll from "./components/SmoothScroll";
 import ClickSpark from './components/Spark';
 import Serviceses from "./sections/Servieses"
 import Contact from "./sections/Contact";
-import About from "./sections/About";
+import Footer from "./sections/Foooter"
 
 
 const App = () => {
-  j
   return (
     <div>
       <SmoothScroll>
@@ -25,7 +24,8 @@ const App = () => {
           <About />
           <Serviceses />
           <Contact />
-          <About />
+          <Footer />
+
         </ClickSpark>
       </SmoothScroll>
     </div>
