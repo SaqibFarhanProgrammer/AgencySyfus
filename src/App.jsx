@@ -6,6 +6,7 @@ import ClickSpark from './components/Spark';
 import Serviceses from "./sections/Servieses"
 import Contact from "./sections/Contact";
 import Footer from "./sections/Foooter"
+import Projects from "./sections/Projects";
 
 
 const App = () => {
@@ -23,9 +24,9 @@ const App = () => {
           <Hero />
           <About />
           <Serviceses />
+          <Projects />
           <Contact />
           <Footer />
-
         </ClickSpark>
       </SmoothScroll>
     </div>
