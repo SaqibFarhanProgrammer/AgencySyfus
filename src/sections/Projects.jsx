@@ -32,9 +32,12 @@ const Projects = () => {
     }, []);
 
     return (
-        <div className="min-h-screen w-full px-4 py-20 bg-[#0a0a0a] text-white flex flex-col items-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-20 tracking-tight text-center">
-                Selected Works
+        <div className="min-h-screen w-full px-4 py-20  text-white flex flex-col items-center">
+            <h1 className="project-text md:text-6xl  mb-20 tracking-tight text-start">
+
+                Selected
+
+                Works
             </h1>
 
             <div className="space-y-20 w-full flex flex-col items-center">

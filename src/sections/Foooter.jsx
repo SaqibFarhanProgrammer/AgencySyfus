@@ -9,20 +9,19 @@ const Footer = () => {
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            // Animate each letter
             gsap.from(".animated-text p", {
-                opacity: 0,
-                y: 100,
-                duration: 1,
+                y: 400,
+                duration: 2,
                 stagger: 0.1,
                 ease: "power4.out",
+                delay: .02,
                 scrollTrigger: {
                     trigger: footer.current,
-                    start: 'top 90%',
+                    start: '550% 70%',
                     markers: true,
                 },
             });
-        }, footer); // restrict GSAP context to this component
+        }, footer);
 
         return () => ctx.revert();
     }, []);
@@ -34,7 +33,7 @@ const Footer = () => {
         >
             {/* Large background text */}
             <div className="footer-text absolute bottom-0 left-0 text-[31vw] text-white/80 select-none pointer-events-none leading-none z-0">
-                <div className="animated-text flex">
+                <div className="animated-text flex overflow-hidden">
                     <p>S</p>
                     <p>y</p>
                     <p>f</p>
@@ -44,44 +43,22 @@ const Footer = () => {
             </div>
 
             {/* Main content */}
-            <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-10 mb-20">
+            <div className="relative z-10 max-w-7xl mx-auto flex flex-wrap justify-between gap-16 px-8 mb-24">
                 {/* Menu */}
                 <div>
-                    <h3 className="font-semibold mb-4">Menu</h3>
-                    <ul className="space-y-2">
+                    <h3 className="font-semibold mb-4 text-lg">Menu</h3>
+                    <ul className="space-y-2 text-sm text-white/90">
                         <li><a href="#" className="hover:underline">Home</a></li>
-                        <li><a href="#" className="hover:underline">Studio</a></li>
+                        <li><a href="#" className="hover:underline">Work</a></li>
                         <li><a href="#" className="hover:underline">Projekte</a></li>
-                        <li><a href="#" className="hover:underline">Learn</a></li>
-                        <li><a href="#" className="hover:underline">Kontakt</a></li>
-                    </ul>
-                </div>
-
-                {/* Office */}
-                <div>
-                    <h3 className="font-semibold mb-4">Office</h3>
-                    <p className="leading-relaxed">
-                        <strong>Syfus </strong><br />
-                        Annenstrasse 29<br />
-                        8020 Graz, Austria<br />
-                        <a href="mailto:hello@syfus.com" className="underline block mt-2">Email ↗</a>
-                    </p>
-                </div>
-
-                {/* Extras */}
-                <div>
-                    <h3 className="font-semibold mb-4">Extras</h3>
-                    <ul className="space-y-2">
-                        <li><a href="#" className="hover:underline">Store Waitlist ↗</a></li>
-                        <li><a href="#" className="hover:underline">Brandcheck sichern ↗</a></li>
-                        <li><a href="#" className="hover:underline">Webdesign Pakete ↗</a></li>
+                        <li><a href="#" className="hover:underline">Contact</a></li>
                     </ul>
                 </div>
 
                 {/* Socials */}
                 <div>
-                    <h3 className="font-semibold mb-4">Socials</h3>
-                    <ul className="space-y-2">
+                    <h3 className="font-semibold mb-4 text-lg">Socials</h3>
+                    <ul className="space-y-2 text-sm text-white/90">
                         <li><a href="#" className="hover:underline">Instagram</a></li>
                         <li><a href="#" className="hover:underline">LinkedIn</a></li>
                         <li><a href="#" className="hover:underline">Facebook</a></li>
@@ -90,10 +67,10 @@ const Footer = () => {
                 </div>
             </div>
 
-            {/* Bottom section (optional for links/copyright) */}
-            <div className="relative z-10 border-t border-white/10 pt-6 flex justify-between items-center text-sm flex-wrap gap-2">
+            {/* Bottom section */}
+            <div className="absolute bottom-0 z-10 border-t backdrop-blur-[5px] border-white/10 pt-6 w-full px-18 pb-16 flex flex-col md:flex-row justify-between items-center text-xs text-white/60 gap-3">
                 <span>© 2025 Syfus. All rights reserved.</span>
-                <div className="flex space-x-4">
+                <div className="flex space-x-4 pt-10">
                     <a href="#" className="hover:underline">Privacy</a>
                     <a href="#" className="hover:underline">Terms</a>
                 </div>
