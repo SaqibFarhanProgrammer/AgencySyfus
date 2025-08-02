@@ -21,7 +21,7 @@ const About = () => {
       gsap.from(".word", {
         y: 80,
         opacity: 0,
-        duration: 1,
+        duration: .5,
         ease: "power3.out",
         stagger: 0.04,
         scrollTrigger: {

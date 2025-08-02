@@ -57,7 +57,7 @@ const App = () => {
       <SmoothScroll>
         <div
           ref={loaderRef}
-          className="loader fixed top-[-100%] left-0 z-[9999] h-screen w-full bg-zinc-900 flex items-center justify-center"
+          className="loader fixed top-[-100%] left-0 z-[9999] h-screen w-full bg-[#09090a] flex items-center justify-center"
         >
           <h1 className="text-white text-[6vw] font-bold tracking-widest flex gap-4">
             {brandName.split("").map((char, index) => (
