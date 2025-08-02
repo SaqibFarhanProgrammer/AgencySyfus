@@ -3,7 +3,7 @@ import React from 'react';
 const Footer = () => {
     return (
         <footer className="relative bg-black text-white py-24 h-screen px-6 overflow-hidden">
-            <h1 className="footer-text absolute bottom-0 left-0 text-[34vw] font-extrabold text-white/10 select-none pointer-events-none leading-none z-0">
+            <h1 className=" footer-text absolute bottom-0 left-0 text-[34vw]  text-white/80 select-none pointer-events-none leading-none z-0">
                 Syfus
             </h1>
 
@@ -56,12 +56,7 @@ const Footer = () => {
 
             {/* Bottom links */}
             <div className="relative z-10 border-t border-white/10 pt-6 flex justify-between items-center text-sm flex-wrap gap-2">
-                <div className="space-x-6">
-                    <a href="#" className="hover:underline">Impressum</a>
-                    <a href="#" className="hover:underline">Datenschutz</a>
-                    <a href="#" className="hover:underline">Cookies</a>
-                </div>
-                <span className="text-white/60">©2025</span>
+
             </div>
         </footer>
     );
