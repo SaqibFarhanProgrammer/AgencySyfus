@@ -1,13 +1,49 @@
-import React from 'react';
+import gsap from 'gsap';
+import React, { useEffect, useRef } from 'react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Footer = () => {
-    return (
-        <footer className="relative bg-black text-white py-24 h-screen px-6 overflow-hidden">
-            <h1 className=" footer-text absolute bottom-0 left-0 text-[34vw]  text-white/80 select-none pointer-events-none leading-none z-0">
-                Syfus
-            </h1>
+    const footer = useRef(null);
 
-            {/* Content */}
+    useEffect(() => {
+        const ctx = gsap.context(() => {
+            // Animate each letter
+            gsap.from(".animated-text p", {
+                opacity: 0,
+                y: 100,
+                duration: 1,
+                stagger: 0.1,
+                ease: "power4.out",
+                scrollTrigger: {
+                    trigger: footer.current,
+                    start: 'top 90%',
+                    markers: true,
+                },
+            });
+        }, footer); // restrict GSAP context to this component
+
+        return () => ctx.revert();
+    }, []);
+
+    return (
+        <footer
+            ref={footer}
+            className="footer relative bg-black text-white py-24 h-screen px-6 overflow-hidden"
+        >
+            {/* Large background text */}
+            <div className="footer-text absolute bottom-0 left-0 text-[31vw] text-white/80 select-none pointer-events-none leading-none z-0">
+                <div className="animated-text flex">
+                    <p>S</p>
+                    <p>y</p>
+                    <p>f</p>
+                    <p>u</p>
+                    <p>S</p>
+                </div>
+            </div>
+
+            {/* Main content */}
             <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-10 mb-20">
                 {/* Menu */}
                 <div>
@@ -54,9 +90,13 @@ const Footer = () => {
                 </div>
             </div>
 
-            {/* Bottom links */}
+            {/* Bottom section (optional for links/copyright) */}
             <div className="relative z-10 border-t border-white/10 pt-6 flex justify-between items-center text-sm flex-wrap gap-2">
-
+                <span>© 2025 Syfus. All rights reserved.</span>
+                <div className="flex space-x-4">
+                    <a href="#" className="hover:underline">Privacy</a>
+                    <a href="#" className="hover:underline">Terms</a>
+                </div>
             </div>
         </footer>
     );
