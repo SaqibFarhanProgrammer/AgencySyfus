@@ -80,3 +80,8 @@
 .hero-text {
   font-family: "para";
 }
+
+.footer-text {
+  font-family: "hero";
+  text-transform: uppercase;
+}

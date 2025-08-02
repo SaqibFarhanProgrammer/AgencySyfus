@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import Hero from "./sections/Hero";
 import About from "./sections/About";
 import SmoothScroll from "./components/SmoothScroll";
@@ -6,12 +6,12 @@ import ClickSpark from './components/Spark';
 import Serviceses from "./sections/Servieses"
 import Contact from "./sections/Contact";
 import Footer from "./sections/Foooter"
-import Projects from "./sections/Projects";
+const Profjects = lazy(() => import("./sections/Projects"))
 
 
 const App = () => {
   return (
-    <div>
+    <div className="app">
       <SmoothScroll>
         <ClickSpark
           sparkColor='#fff'
@@ -24,7 +24,10 @@ const App = () => {
           <Hero />
           <About />
           <Serviceses />
-          <Projects />
+          <Suspense>
+
+            <Profjects />
+          </Suspense>
           <Contact />
           <Footer />
         </ClickSpark>

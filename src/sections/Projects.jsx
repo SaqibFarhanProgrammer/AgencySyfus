@@ -1,6 +1,4 @@
-import React, { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import React, { useEffect } from "react";
 import work1 from "../assets/images/work (1).jpeg";
 import work2 from "../assets/images/work (2).jpeg";
 import work3 from "../assets/images/work (3).jpeg";
@@ -8,136 +6,56 @@ import work4 from "../assets/images/work (4).jpeg";
 import work5 from "../assets/images/work (5).jpeg";
 import work6 from "../assets/images/work (6).jpeg";
 
-// Register ScrollTrigger plugin
-gsap.registerPlugin(ScrollTrigger);
+const projects = [
+    { image: work1, title: "Narrative Studio", desc: "React/Next.js with GSAP animations" },
+    { image: work2, title: "Crypto Wallet", desc: "Next.js and Tailwind CSS" },
+    { image: work3, title: "DeFi Tracker", desc: "Blockchain visualization" },
+    { image: work4, title: "TeamFlow", desc: "Collaboration platform" },
+    { image: work5, title: "AutoPilot AI", desc: "AI automation landing" },
+    { image: work6, title: "FieldSync", desc: "Operations workflow" }
+];
 
 const Projects = () => {
-    const works = [
-        {
-            img: work1,
-            text: "Clean UI design with React and Next.js, featuring GSAP animations for dynamic storytelling"
-        },
-        {
-            img: work2,
-            text: "Web3 wallet comparison interface built with Next.js and Tailwind CSS for responsive crypto experiences"
-        },
-        {
-            img: work3,
-            text: "Blockchain trade visualization dashboard using Next.js with decentralized data mapping"
-        },
-        {
-            img: work4,
-            text: "Productivity collaboration platform with modern UI components from Shadcn and Tailwind"
-        },
-        {
-            img: work5,
-            text: "AI automation landing page crafted with React, Next.js and GSAP scroll effects"
-        },
-        {
-            img: work6,
-            text: "Field operations workflow interface with data visualization using Next.js and Tailwind"
-        }
-    ];
-
-    const sectionRef = useRef(null);
-    const itemsRef = useRef([]);
-
     useEffect(() => {
-        // Initialize animations
-        gsap.from(sectionRef.current.querySelector("h1"), {
-            opacity: 0,
-            y: 50,
-            duration: 1,
-            scrollTrigger: {
-                trigger: sectionRef.current,
-                start: "top 80%"
-            }
-        });
-
-        itemsRef.current.forEach((item, index) => {
-            if (!item) return;
-
-            gsap.from(item, {
-                opacity: 0,
-                y: 80,
-                duration: 1,
-                ease: "power3.out",
-                scrollTrigger: {
-                    trigger: item,
-                    start: "top 80%",
-                    toggleActions: "play none none none"
-                },
-                delay: index * 0.1
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
             });
+        }, { threshold: 0.1 });
 
-            // Hover animations
-            const img = item.querySelector("img");
-            gsap.to(img, {
-                scale: 1.05,
-                duration: 1.5,
-                ease: "power3.out",
-                paused: true,
-            });
-
-            item.addEventListener("mouseenter", () => {
-                gsap.to(img, { scale: 1.05, duration: 1.5 });
-                gsap.to(item.querySelector(".overlay-content"), {
-                    y: 0,
-                    opacity: 1,
-                    duration: 0.8,
-                    ease: "power3.out"
-                });
-            });
-
-            item.addEventListener("mouseleave", () => {
-                gsap.to(img, { scale: 1, duration: 1.5 });
-                gsap.to(item.querySelector(".overlay-content"), {
-                    y: 30,
-                    opacity: 0,
-                    duration: 0.5
-                });
-            });
-        });
-
-        return () => {
-            ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-        };
+        const elements = document.querySelectorAll('.fade-in');
+        elements.forEach(el => observer.observe(el));
+        return () => elements.forEach(el => observer.unobserve(el));
     }, []);
 
     return (
-        <div ref={sectionRef} className="min-h-screen w-full px-4 py-16 overflow-hidden">
-            <h1 className="text-4xl md:text-6xl font-bold text-center mb-16 opacity-0">
+        <div className="min-h-screen w-full px-4 py-20 bg-[#0a0a0a] text-white flex flex-col items-center">
+            <h1 className="text-4xl md:text-6xl font-bold mb-20 tracking-tight text-center">
                 Selected Works
             </h1>
 
-            <div className="max-w-7xl mx-auto">
-                {works.map((work, index) => (
+            <div className="space-y-20 w-full flex flex-col items-center">
+                {projects.map((project, idx) => (
                     <div
-                        key={index}
-                        ref={el => itemsRef.current[index] = el}
-                        className="work-item mb-24 last:mb-0 group cursor-pointer opacity-0"
+                        key={idx}
+                        className={`fade-in opacity-0 translate-y-10 transition-all duration-700 ease-out delay-${idx * 100} w-[90vw] max-w-5xl`}
                     >
-                        <div className="relative overflow-hidden rounded-2xl">
-                            <div className="aspect-video w-full h-auto overflow-hidden">
-                                <img
-                                    src={work.img}
-                                    className="w-full h-full object-cover will-change-transform"
-                                    alt={`Project ${index + 1}`}
-                                    loading="lazy"
-                                />
-                            </div>
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
-                                <div className="overlay-content transform translate-y-8 opacity-0">
-                                    <span className="text-sm text-white/80 mb-2 block">0{index + 1}</span>
-                                    <h2 className="text-2xl md:text-3xl font-semibold text-white mb-4">
-                                        Project Title
-                                    </h2>
-                                    <p className="text-white/90 text-lg max-w-2xl">
-                                        {work.text}
-                                    </p>
-                                    <button className="mt-6 px-6 py-2 bg-white text-black rounded-full text-sm font-medium hover:bg-white/90 transition-colors">
-                                        View Case Study
-                                    </button>
+                        <div className="relative group rounded-3xl overflow-hidden shadow-xl border border-white/10">
+                            <img
+                                src={project.image}
+                                alt={project.title}
+                                className="w-full h-auto object-cover aspect-video transition-transform duration-700 group-hover:scale-105"
+                                loading="lazy"
+                            />
+
+                            {/* Hover Overlay */}
+                            <div className="absolute inset-0 bg-black/50 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                                <div className="text-center px-6">
+                                    <h2 className="text-3xl font-semibold mb-2">{project.title}</h2>
+                                    <p className="text-lg text-gray-300">{project.desc}</p>
                                 </div>
                             </div>
                         </div>
