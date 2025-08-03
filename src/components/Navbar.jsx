@@ -4,6 +4,7 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import ShinyText from "./Button";
 import FlipLink from "../components/ui/text-effect-flipper"
 import "../Media.css"
+import { Link } from "react-router-dom";
 
 
 const Navbar = () => {
@@ -25,10 +26,22 @@ const Navbar = () => {
 
       {/* Desktop Links */}
       <div className="desktop-links gap-10 m-2 items-center">
-        <FlipLink>home</FlipLink>
-        <FlipLink>work</FlipLink>
-        <FlipLink>services</FlipLink>
-        <FlipLink>contact</FlipLink>
+        <Link to="/">
+          <FlipLink>home</FlipLink>
+        </Link>
+        <Link to="/work">
+          <FlipLink>work</FlipLink>
+        </Link>
+        <Link to="/servieces">
+
+          <FlipLink>services</FlipLink>
+        </Link>
+        <Link to="/contact">
+          <FlipLink>contact</FlipLink>
+        </Link>
+        <Link to="/about">
+          <FlipLink>About</FlipLink>
+        </Link>
       </div>
 
       {/* CTA */}

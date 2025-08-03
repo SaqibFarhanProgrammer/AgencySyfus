@@ -1,4 +1,8 @@
 import React, { lazy, Suspense, useEffect, useRef } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import gsap from "gsap";
+
+// Components
 import Hero from "./sections/Hero";
 import About from "./sections/About";
 import SmoothScroll from "./components/SmoothScroll";
@@ -6,12 +10,10 @@ import ClickSpark from './components/Spark';
 import Serviceses from "./sections/Servieses";
 import Contact from "./sections/Contact";
 import Footer from "./sections/Foooter";
-import gsap from "gsap";
-import About_route from "./Routes/About_route"
-import { Route, Router } from "lucide-react";
-import { BrowserRouter } from "react-router-dom";
 
-const Profjects = lazy(() => import("./sections/Projects"));
+// Lazy load
+const Projects = lazy(() => import("./sections/Projects"));
+const AboutRoute = lazy(() => import("./Routes/About_route")); // If you're using it
 
 const App = () => {
   const loaderRef = useRef(null);
@@ -25,14 +27,9 @@ const App = () => {
       duration: 0.6,
       ease: "power2.out",
     })
-
-      // Animate each letter
       .fromTo(
         lettersRef.current,
-        {
-          y: 100,
-          opacity: 0,
-        },
+        { y: 100, opacity: 0 },
         {
           y: 0,
           opacity: 1,
@@ -42,8 +39,6 @@ const App = () => {
         },
         "<0.2"
       )
-
-      // Slide loader up
       .to(loaderRef.current, {
         top: "-100%",
         duration: 1.2,
@@ -54,49 +49,64 @@ const App = () => {
 
   const brandName = "SYFUS";
 
-
-
-
   return (
-    <div className="app relative">
-      <SmoothScroll>
-        <div
-          ref={loaderRef}
-          className="loader fixed top-[-100%] left-0 z-[9999] h-screen w-full bg-zinc-900 flex items-center justify-center"
-        >
-          <h1 className="text-white text-[6vw] font-bold tracking-widest flex gap-4">
-            {brandName.split("").map((char, index) => (
-              <span
-                key={index}
-                ref={(el) => (lettersRef.current[index] = el)}
-                className="footer-text inline-block px-10"
-              >
-                {char}
-              </span>
-            ))}
-          </h1>
-        </div>
+    <Router>
+      <div className="app relative">
+        <SmoothScroll>
+          <div
+            ref={loaderRef}
+            className="loader fixed top-[-100%] left-0 z-[9999] h-screen w-full bg-zinc-900 flex items-center justify-center"
+          >
+            <h1 className="text-white text-[6vw] font-bold tracking-widest flex gap-4">
+              {brandName.split("").map((char, index) => (
+                <span
+                  key={index}
+                  ref={(el) => (lettersRef.current[index] = el)}
+                  className="footer-text inline-block px-10"
+                >
+                  {char}
+                </span>
+              ))}
+            </h1>
+          </div>
 
-        {/* Main App */}
-        <ClickSpark
-          sparkColor="#fff"
-          sparkSize={10}
-          sparkRadius={15}
-          sparkCount={8}
-          duration={400}
-        >
-          <Hero />
-          <About />
-          <Serviceses />
-          <Suspense fallback={null}>
-            <Profjects />
-          </Suspense>
-          <Contact />
-          <Footer />
-          {/* <About_route /> */}
-        </ClickSpark>
-      </SmoothScroll>
-    </div>
+          <ClickSpark
+            sparkColor="#fff"
+            sparkSize={10}
+            sparkRadius={15}
+            sparkCount={8}
+            duration={400}
+          >
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <>
+                    <Hero />
+                    <About />
+                    <Serviceses />
+                    <Suspense fallback={null}>
+                      <Projects />
+                    </Suspense>
+                    <Contact />
+                    <Footer />
+                  </>
+                }
+              />
+
+              <Route
+                path="/about"
+                element={
+                  <Suspense fallback={null}>
+                    <AboutRoute />
+                  </Suspense>
+                }
+              />
+            </Routes>
+          </ClickSpark>
+        </SmoothScroll>
+      </div>
+    </Router>
   );
 };
 
