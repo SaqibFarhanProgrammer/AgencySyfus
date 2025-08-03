@@ -93,7 +93,7 @@ const App = () => {
           </Suspense>
           <Contact />
           <Footer />
-          <About_route />
+          {/* <About_route /> */}
         </ClickSpark>
       </SmoothScroll>
     </div>
