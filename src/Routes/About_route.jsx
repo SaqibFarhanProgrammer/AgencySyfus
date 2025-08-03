@@ -2,33 +2,62 @@ import React from "react";
 
 const About = () => {
     return (
-        <section className="min-h-screen w-full bg-black text-[#f7f9ff] flex items-center justify-center px-6 lg:px-24 py-20">
-            <div className="max-w-5xl w-full space-y-10">
-                {/* Heading */}
-                <h1 className="text-4xl md:text-6xl font-semibold leading-tight tracking-tight mb-4 relative z-10">
-                    We craft{" "}
-                    <span className="relative text-[#0040ff] inline-block">
-                        exceptional digital experiences
-                        <span className="absolute left-0 bottom-0 w-full h-[2px] bg-[#0040ff] opacity-60 rounded-full translate-y-1"></span>
-                    </span>
-                </h1>
-
-                {/* Description */}
-                <p className="text-lg md:text-xl text-gray-300 max-w-3xl leading-relaxed">
-                    <strong className="text-[#f7f9ff]">Syfus</strong> is a forward-thinking software agency specializing in premium front-end development. We build stunning{" "}
-                    <strong>portfolio websites</strong>, sleek{" "}
-                    <strong>landing pages</strong>, and high-performance{" "}
-                    <strong>single-page websites</strong> using the latest technologies in the web ecosystem.
+        <section className="min-h-screen w-full bg-black text-[#f7f9ff] flex flex-col lg:flex-row px-6 lg:px-20 py-20 gap-10 lg:gap-0 relative">
+            {/* LEFT SIDE: Info Text */}
+            <div className="w-full lg:w-1/2 flex flex-col justify-between text-left space-y-6 max-w-[550px]">
+                <p className="text-sm md:text-base leading-relaxed text-white/90">
+                    We are a software agency based in Pakistan. We design and develop
+                    high-quality front-end experiences through close collaboration with
+                    our clients. Every project is unique — we listen, adapt, and craft
+                    it with precision.
+                </p>
+                <p className="text-sm md:text-base leading-relaxed text-white/90">
+                    Just like a strong root system supports a growing tree, our work
+                    is grounded in creativity, collaboration, and clean code. Our goal
+                    is not just to build websites — it's to build digital presence
+                    with lasting impact.
                 </p>
 
-                {/* Founder Section */}
-                <div className="border-t border-white/10 pt-8">
-                    <h2 className="text-2xl md:text-3xl font-medium mb-3">Meet the Founder</h2>
-                    <p className="text-base md:text-lg text-gray-400 leading-relaxed">
-                        I’m <strong className="text-[#f7f9ff]">Saqib Farhan</strong>, a passionate software developer and the founder of Syfus. I launched this company in{" "}
-                        <strong className="text-[#0040ff]">2025</strong> with a vision to push the boundaries of modern UI/UX on the web. At Syfus, every pixel we build is intentional, and every experience we create is refined to perfection.
-                    </p>
+                {/* Contact Info */}
+                <div className="mt-6 space-y-2 text-white/70 text-sm">
+                    <p>Syfus Software Agency</p>
+                    <p>Karachi, Pakistan</p>
+                    <p>+92 123 4567890</p>
+                    <p>hello@syfus.com</p>
+                    <div className="pt-2 flex gap-4">
+                        <a href="#" className="hover:text-[#0040ff] transition">LinkedIn</a>
+                        <a href="#" className="hover:text-[#0040ff] transition">Instagram</a>
+                        <a href="#" className="hover:text-[#0040ff] transition">GitHub</a>
+                    </div>
                 </div>
+            </div>
+
+            {/* RIGHT SIDE: Title */}
+            <div className="w-full lg:w-1/2 flex flex-col items-start lg:items-center justify-center text-left lg:text-center">
+                <h1 className="text-[10vw] leading-none font-light tracking-tight text-[#f7f9ff]">
+                    ABOUT
+                </h1>
+                <h2 className="text-[6vw] leading-tight font-light text-[#f7f9ff] opacity-80 -mt-2">
+                    Informations
+                </h2>
+            </div>
+
+            {/* Bottom Navigation */}
+            <div className="absolute bottom-5 left-0 w-full flex justify-between items-center px-6 lg:px-20 text-sm text-white/70">
+                <div className="flex gap-6">
+                    <a href="#" className="hover:text-[#0040ff]">WORKS</a>
+                    <a href="#" className="hover:text-[#0040ff]">SERVICES</a>
+                </div>
+                <div className="flex gap-6">
+                    <a href="#" className="text-red-600 font-semibold italic">ABOUT</a>
+                    <a href="#" className="hover:text-[#0040ff]">LEGAL</a>
+                </div>
+            </div>
+
+            {/* Bottom Center Logo */}
+            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-red-600 text-2xl font-bold">
+                {/* Logo placeholder or SVG */}
+                W
             </div>
         </section>
     );
