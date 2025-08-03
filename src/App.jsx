@@ -13,6 +13,7 @@ import Footer from "./sections/Foooter";
 import Navbar from "./components/Navbar";
 import Servivvese_route from "./Routes/Services_route"
 import Project_route from "./Routes/Projects_route"
+import Contact_route from "./Routes/Contact_route"
 
 // Lazy load
 const Projects = lazy(() => import("./sections/Projects"));
@@ -118,6 +119,14 @@ const App = () => {
                 element={
                   <Suspense fallback={null}>
                     <Project_route />
+                  </Suspense>
+                }
+              />
+              <Route
+                path="/contact"
+                element={
+                  <Suspense fallback={null}>
+                    <Contact_route />
                   </Suspense>
                 }
               />

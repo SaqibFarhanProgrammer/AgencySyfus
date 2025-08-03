@@ -1,5 +1,6 @@
 import React from "react";
 
+import Minifooter from "../Subcomponnet/Minifooter"
 const About = () => {
     return (
         <section className="min-h-screen w-full bg-black text-[#f7f9ff] flex flex-col lg:flex-row px-6 lg:px-20 py-24 gap-16 relative">
@@ -39,21 +40,8 @@ const About = () => {
             </div>
 
             {/* BOTTOM NAVIGATION */}
-            <div className="absolute bottom-6 left-0 w-full flex justify-between items-center px-6 lg:px-20 text-sm text-white/60 uppercase tracking-wider">
-                <div className="flex gap-6">
-                    <a href="#" className="hover:text-white transition">Works</a>
-                    <a href="#" className="hover:text-white transition">Services</a>
-                </div>
-                <div className="flex gap-6">
-                    <a href="#" className="text-white font-semibold">About</a>
-                    <a href="#" className="hover:text-white transition">Legal</a>
-                </div>
-            </div>
 
-            {/* BOTTOM CENTER LOGO OR COPYRIGHT */}
-            <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 text-white text-sm tracking-widest font-light opacity-40">
-                © 2025 SYFUS
-            </div>
+            <Minifooter />
         </section>
     );
 };

@@ -3,6 +3,7 @@ import card1 from "../assets/images/cardimg.jfif";
 import card2 from "../assets/images/cards (2).jfif";
 import card3 from "../assets/images/cardsimg (3).jfif";
 import card4 from "../assets/images/cardsimg (5).jfif";
+import Minifooter from "../Subcomponnet/Minifooter"
 
 const services = [
     {
@@ -78,21 +79,7 @@ const ServicesPage = () => {
             </div>
 
             {/* Bottom Nav */}
-            <div className="absolute bottom-8 left-0 w-full flex justify-between items-center px-6 lg:px-20 text-xs text-white/50 uppercase tracking-wider">
-                <div className="flex gap-6">
-                    <a href="#" className="hover:text-white transition">Works</a>
-                    <a href="#" className="text-white font-semibold">Services</a>
-                </div>
-                <div className="flex gap-6">
-                    <a href="#" className="hover:text-white transition">About</a>
-                    <a href="#" className="hover:text-white transition">Legal</a>
-                </div>
-            </div>
-
-            {/* Bottom Logo */}
-            <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 text-white text-sm tracking-widest font-light opacity-40">
-                © 2025 SYFUS
-            </div>
+            <Minifooter />
         </section>
     );
 };
