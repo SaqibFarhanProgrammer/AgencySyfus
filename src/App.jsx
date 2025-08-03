@@ -7,6 +7,9 @@ import Serviceses from "./sections/Servieses";
 import Contact from "./sections/Contact";
 import Footer from "./sections/Foooter";
 import gsap from "gsap";
+import About_route from "./Routes/About_route"
+import { Route, Router } from "lucide-react";
+import { BrowserRouter } from "react-router-dom";
 
 const Profjects = lazy(() => import("./sections/Projects"));
 
@@ -17,7 +20,6 @@ const App = () => {
   useEffect(() => {
     const tl = gsap.timeline();
 
-    // Animate loader in
     tl.to(loaderRef.current, {
       top: 0,
       duration: 0.6,
@@ -51,6 +53,9 @@ const App = () => {
   }, []);
 
   const brandName = "SYFUS";
+
+
+
 
   return (
     <div className="app relative">
