@@ -10,6 +10,7 @@ import ClickSpark from './components/Spark';
 import Serviceses from "./sections/Servieses";
 import Contact from "./sections/Contact";
 import Footer from "./sections/Foooter";
+import Navbar from "./components/Navbar";
 
 // Lazy load
 const Projects = lazy(() => import("./sections/Projects"));
