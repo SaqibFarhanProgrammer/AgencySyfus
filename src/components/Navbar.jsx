@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import logo from "../assets/videos/Picsart_25-07-30_03-25-35-135.png";
 import { FaBars, FaTimes } from "react-icons/fa";
 import ShinyText from "./Button";
-import FlipLink from "../components/ui/text-effect-flipper";
-import "../Media.css";
+import FlipLink from "../components/ui/text-effect-flipper"
+import "../Media.css"
+import { Link } from "react-router-dom";
+
 
 const Navbar = () => {
   const [navOpen, setNavOpen] = useState(false);
@@ -24,11 +26,22 @@ const Navbar = () => {
 
       {/* Desktop Links */}
       <div className="desktop-links gap-10 m-2 items-center">
-        <FlipLink to="/">home</FlipLink>
-        <FlipLink to="/work">work</FlipLink>
-        <FlipLink to="/servieces">services</FlipLink>
-        <FlipLink to="/contact">contact</FlipLink>
-        <FlipLink to="/about">about</FlipLink>
+        <Link to="/">
+          <FlipLink>home</FlipLink>
+        </Link>
+        <Link to="/work">
+          <FlipLink>work</FlipLink>
+        </Link>
+        <Link to="/servieces">
+
+          <FlipLink>services</FlipLink>
+        </Link>
+        <Link to="/contact">
+          <FlipLink>contact</FlipLink>
+        </Link>
+        <Link to="/about">
+          <FlipLink>About</FlipLink>
+        </Link>
       </div>
 
       {/* CTA */}
@@ -44,28 +57,19 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Toggle */}
-      <div
-        className="mobile-toggle text-xl cursor-pointer z-50"
-        onClick={() => setNavOpen(!navOpen)}
-      >
+      <div className="mobile-toggle text-xl cursor-pointer z-50" onClick={() => setNavOpen(!navOpen)}>
         {navOpen ? <FaTimes /> : <FaBars />}
       </div>
 
-      <div
-        className={`mobile-menu fixed top-0 left-0 h-screen w-full bg-[#0f0f0f] flex flex-col items-center justify-center gap-10 text-lg transition-all duration-500 ${navOpen ? "translate-x-0" : "-translate-x-full"
-          }`}
-      >
+      {/* Mobile Menu */}
+      <div className={`mobile-menu fixed top-0 left-0 h-screen w-full bg-[#0f0f0f] flex flex-col items-center justify-center gap-10 text-lg transition-all duration-500 ${navOpen ? "translate-x-0" : "-translate-x-full"}`}>
         {links.map((link, index) => (
-          <a
-            key={index}
-            href={link.href}
-            className="hover:text-[#b18aff] transition"
-            onClick={() => setNavOpen(false)}
-          >
+          <a key={index} href={link.href} className="hover:text-[#b18aff] transition" onClick={() => setNavOpen(false)}>
             {link.label}
           </a>
         ))}
       </div>
+
     </div>
   );
 };

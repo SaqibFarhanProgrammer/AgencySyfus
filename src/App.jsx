@@ -1,6 +1,7 @@
 import React, { lazy, Suspense, useEffect, useRef } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import gsap from "gsap";
+import "../Media.css"
 
 // Components
 import Hero from "./sections/Hero";
