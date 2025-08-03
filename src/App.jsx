@@ -93,6 +93,7 @@ const App = () => {
           </Suspense>
           <Contact />
           <Footer />
+          <About_route />
         </ClickSpark>
       </SmoothScroll>
     </div>
