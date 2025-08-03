@@ -12,6 +12,7 @@ import Contact from "./sections/Contact";
 import Footer from "./sections/Foooter";
 import Navbar from "./components/Navbar";
 import Servivvese_route from "./Routes/Services_route"
+import Project_route from "./Routes/Projects_route"
 
 // Lazy load
 const Projects = lazy(() => import("./sections/Projects"));
@@ -109,6 +110,14 @@ const App = () => {
                 element={
                   <Suspense fallback={null}>
                     <Servivvese_route />
+                  </Suspense>
+                }
+              />
+              <Route
+                path="/work"
+                element={
+                  <Suspense fallback={null}>
+                    <Project_route />
                   </Suspense>
                 }
               />

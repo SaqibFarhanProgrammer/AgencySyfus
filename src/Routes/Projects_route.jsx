@@ -5,13 +5,15 @@ import work3 from "../assets/images/work (3).jpeg";
 import work4 from "../assets/images/work (4).jpeg";
 import work5 from "../assets/images/work (5).jpeg";
 import work6 from "../assets/images/work (6).jpeg";
+import Minifooter from "../Subcomponnet/Minifooter"
+
 const projects = [
     { image: work1, title: "Narrative Studio", desc: "React/Next.js with GSAP animations" },
     { image: work2, title: "Crypto Wallet", desc: "Next.js and Tailwind CSS" },
     { image: work3, title: "DeFi Tracker", desc: "Blockchain visualization" },
     { image: work4, title: "TeamFlow", desc: "Collaboration platform" },
     { image: work5, title: "AutoPilot AI", desc: "AI automation landing" },
-    { image: work6, title: "FieldSync", desc: "Operations workflow" }
+    { image: work6, title: "FieldSync", desc: "Operations workflow" },
 ];
 
 const Projects = () => {
@@ -31,40 +33,40 @@ const Projects = () => {
     }, []);
 
     return (
-        <div className="min-h-screen w-full px-4 py-20  text-white flex flex-col items-center">
-            <h1 className="project-text md:text-6xl  mb-20 tracking-tight text-start">
-
-                Selected
-
-                Works
+        <section className="min-h-screen w-full bg-black text-[#f7f9ff] px-6 lg:px-20 py-24">
+            {/* Section Heading */}
+            <h1 className="same text-[10vw] font-light leading-none tracking-tight mb-20 text-left">
+                Selected<br />Works
             </h1>
 
-            <div className="space-y-20 w-full flex flex-col items-center">
+            {/* Projects List */}
+            <div className="space-y-20 flex flex-col items-center">
                 {projects.map((project, idx) => (
                     <div
                         key={idx}
-                        className={`fade-in opacity-0 translate-y-10 transition-all duration-700 ease-out delay-${idx * 100} w-[90vw] max-w-5xl`}
+                        className={`fade-in opacity-0 translate-y-10 transition-all duration-700 ease-out w-full max-w-6xl`}
                     >
-                        <div className="relative group rounded-3xl overflow-hidden shadow-xl border border-white/10">
+                        <div className="relative group overflow-hidden rounded-3xl border border-white/10 shadow-2xl">
                             <img
                                 src={project.image}
                                 alt={project.title}
-                                className="w-full h-auto object-cover aspect-video transition-transform duration-700 group-hover:scale-105"
+                                className="w-full h-[75vh] object-cover transition-transform duration-700 group-hover:scale-105"
                                 loading="lazy"
                             />
 
-                            {/* Hover Overlay */}
-                            <div className="absolute inset-0 bg-black/50 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                                <div className="text-center px-6">
-                                    <h2 className="text-3xl font-semibold mb-2">{project.title}</h2>
-                                    <p className="text-lg text-gray-300">{project.desc}</p>
+                            {/* Gradient Overlay */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end">
+                                <div className="p-8 w-full text-left">
+                                    <h2 className="text-3xl lg:text-4xl font-light">{project.title}</h2>
+                                    <p className="text-white/70 text-sm mt-2">{project.desc}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 ))}
             </div>
-        </div>
+            <Minifooter />
+        </section>
     );
 };
 
