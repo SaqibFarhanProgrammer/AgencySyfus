@@ -26,22 +26,12 @@ const Navbar = () => {
 
       {/* Desktop Links */}
       <div className="desktop-links gap-10 m-2 items-center">
-        <Link to="/">
-          <FlipLink>home</FlipLink>
-        </Link>
-        <Link to="/work">
-          <FlipLink>work</FlipLink>
-        </Link>
-        <Link to="/servieces">
+        <FlipLink to="/"> home</FlipLink>
+        <FlipLink to="/work">work</FlipLink>
 
-          <FlipLink>services</FlipLink>
-        </Link>
-        <Link to="/contact">
-          <FlipLink>contact</FlipLink>
-        </Link>
-        <Link to="/about">
-          <FlipLink>About</FlipLink>
-        </Link>
+        <FlipLink to="services"> services</FlipLink>
+        <FlipLink to="contact">contact</FlipLink>
+        <FlipLink to="about">About</FlipLink>
       </div>
 
       {/* CTA */}
