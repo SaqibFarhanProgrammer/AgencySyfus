@@ -98,3 +98,7 @@
 .aboutimg {
   mask-image: linear-gradient(black, transparent);
 }
+
+.same {
+  font-family: "hero";
+}

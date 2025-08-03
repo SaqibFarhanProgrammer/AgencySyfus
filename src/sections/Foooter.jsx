@@ -18,7 +18,6 @@ const Footer = () => {
                 scrollTrigger: {
                     trigger: footer.current,
                     start: '550% 70%',
-                    markers: true,
                 },
             });
         }, footer);
