@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ShinyText from '../components/Button';
-import bg from "../assets/images/bg.jpeg"
+import bg from "../assets/videos/imgi_30_QbTBqyfFKMk8wQvTbSZA0Lzl6g0.png"
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -49,9 +49,9 @@ const About = () => {
   return (
     <div
       ref={sectionRef}
-      className="h-[80vh] w-full bg-[#09090a]  relative flex justify-between items-end px-16 py-20 gap-10"
+      className="h-[70vh] w-full  relative flex justify-between items-end px-16 py-20 gap-10"
     >
-      <img src={bg} alt="" className="absolute  w-[110%] h-[100%] bottom-[62%]  left-0 mix-blend-screen" />
+      <img src={bg} alt="" className="aboutimg absolute top-0 w-[110%] h-[100%] bottom-[62%] object-cover blur left-0 mix-blend-screen" />
       <div className="w-[65%] text-[2.3vw] leading-tight text-[#f7f9ff] flex flex-col gap-10 tracking-wide">
         <div ref={paraContainer} className="drop-shadow-[0_0_5px_white] flex flex-wrap overflow-hidden">
           {para.split(" ").map((word, index) => (

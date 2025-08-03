@@ -2,6 +2,7 @@ import Navbar from "../components/Navbar";
 import "../App.css";
 import { MdOutlineArrowForward } from "react-icons/md";
 import ShinyText from "../components/Button";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -32,12 +33,15 @@ const Hero = () => {
 
         {/* Button */}
         <div className="btn backdrop-blur-[100px] absolute bottom-50 px-10 pl-10 bg-[#161515] border border-[#474747] rounded-full p-3 mt-12 group cursor-pointer text-lg font-medium flex items-center gap-2 transition-all hover:gap-4">
-          <ShinyText
-            text="Let's Explore"
-            disabled={false}
-            speed={4}
-            className="custom-class drop-shadow-[0_0px_4px_white]"
-          />
+          <Link to="/contact">
+
+            <ShinyText
+              text="Contact"
+              disabled={false}
+              speed={4}
+              className="custom-class drop-shadow-[0_0px_4px_white]"
+            />
+          </Link>
           <div className="ml-2 mt-1 h-[2px] w-0 bg-gray-400 transition-all duration-300 group-hover:w-24" />
         </div>
       </div>

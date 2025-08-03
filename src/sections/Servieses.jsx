@@ -8,11 +8,14 @@ import cardimg from "../assets/images/cardimg.jfif";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import BlurText from "../components/Text"
+import BlurText from "../components/Text";
 gsap.registerPlugin(ScrollTrigger);
 
 const sharedCountClass =
     "text-[1.5vw] p-4 pl-7 drop-shadow-[0_0_10px_blue] rounded-full absolute z-12 cardnum bg-gradient-to-b from-blue-700 to-blue-600 bg-clip-text text-transparent";
+
+const sharedImageClass =
+    "h-[100%] w-[100%] hover:scale-1 object-cover opacity-100 rounded-2xl transition-transform duration-500 ease-out hover:scale-105";
 
 const card1Styles = {
     containerClass: "relative gap-1 overflow-hidden aa bg-[#060709] rounded-2xl",
@@ -21,7 +24,7 @@ const card1Styles = {
         "content z-4 absolute p-6 bottom-10 text-[#dddddd] gap-1 flex flex-col",
     titleClass: "text-[3vw]",
     descClass: "text-2xl",
-    imageClass: "h-[100%] w-[100%] object-cover opacity-100 rounded-2xl",
+    imageClass: sharedImageClass,
     overlayClass: "bg-gradient absolute top-0 left-0 h-[100%] w-[100%]",
 };
 
@@ -32,7 +35,7 @@ const card2Styles = {
         "content z-4 absolute p-6 bottom-5 text-[#dddddd] gap-1 flex flex-col",
     titleClass: "text-[3vw]",
     descClass: "text-2xl",
-    imageClass: "h-[100%] w-[100%] object-cover opacity-100 rounded-2xl",
+    imageClass: sharedImageClass,
     overlayClass: "bg-gradient absolute top-0 left-0 h-[100%] w-[100%]",
 };
 
@@ -43,7 +46,7 @@ const card3Styles = {
         "content z-4 absolute p-6 bottom-0 text-[#dddddd] gap-1 flex flex-col",
     titleClass: "text-[3vw]",
     descClass: "text-[1.3vw]",
-    imageClass: "h-[100%] w-[100%] object-cover opacity-100 rounded-2xl",
+    imageClass: sharedImageClass,
     overlayClass: "bg-gradient absolute top-0 left-0 h-[100%] w-[100%]",
 };
 
@@ -54,7 +57,7 @@ const card4Styles = {
         "content z-4 absolute p-6 bottom-0 text-[#dddddd] gap-1 flex flex-col",
     titleClass: "text-[3vw] whitespace-nowrap",
     descClass: "text-[1.3vw]",
-    imageClass: "h-[100%] w-[100%] object-cover opacity-100 rounded-2xl",
+    imageClass: sharedImageClass,
     overlayClass: "bg-gradient absolute top-0 left-0 h-[100%] w-[100%]",
 };
 
@@ -78,7 +81,7 @@ const Servieses = () => {
                     trigger: ".services",
                     start: "top 50%",
                 },
-            })
+            });
         });
 
         return () => ctv.revert();
@@ -88,12 +91,12 @@ const Servieses = () => {
         <div className="services h-[105vh] relative w-full flex justify-between items-center p-10">
             <BlurText
                 text="Our Services"
-
                 delay={150}
                 animateBy="words"
                 direction="top"
                 className=" word absolute left-25 top-5 text-[5vw]"
             />
+
             <div className="left mt-25 z-2 w-[50vw] h-screen flex items-center justify-center pl-4">
                 <div className="card-wrapper">
                     <Serviese_card

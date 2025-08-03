@@ -94,3 +94,7 @@
   font-family: "para";
   font-size: 6rem;
 }
+
+.aboutimg {
+  mask-image: linear-gradient(black, transparent);
+}
