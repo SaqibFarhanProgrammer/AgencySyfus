@@ -1,20 +1,24 @@
 import React, { lazy, Suspense, useEffect, useRef } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import gsap from "gsap";
-import "./Media.css";
 
+// Sections
 import Hero from "./sections/Hero";
 import About from "./sections/About";
-import SmoothScroll from "./components/SmoothScroll";
-import ClickSpark from './components/Spark';
 import Serviceses from "./sections/Servieses";
 import Contact from "./sections/Contact";
 import Footer from "./sections/Foooter";
-import Navbar from "./components/Navbar";
-import Servivvese_route from "./Routes/Services_route";
-import Project_route from "./Routes/Projects_route";
-import Contact_route from "./Routes/Contact_route";
 
+// Components
+import SmoothScroll from "./components/SmoothScroll";
+import ClickSpark from './components/Spark';
+
+// Route Pages
+import ServicesRoute from "./Routes/Services_route";
+import ProjectRoute from "./Routes/Projects_route";
+import ContactRoute from "./Routes/Contact_route";
+
+// Lazy Routes
 const Projects = lazy(() => import("./sections/Projects"));
 const AboutRoute = lazy(() => import("./Routes/About_route"));
 
@@ -53,7 +57,7 @@ const App = () => {
   const brandName = "SYFUS";
 
   return (
-    <BrowserRouter>
+    <Router>
       <div className="app relative">
         <SmoothScroll>
           <div
@@ -80,8 +84,6 @@ const App = () => {
             sparkCount={8}
             duration={400}
           >
-            <Navbar />
-
             <Routes>
               <Route
                 path="/"
@@ -98,6 +100,7 @@ const App = () => {
                   </>
                 }
               />
+
               <Route
                 path="/about"
                 element={
@@ -106,27 +109,30 @@ const App = () => {
                   </Suspense>
                 }
               />
+
               <Route
                 path="/services"
                 element={
                   <Suspense fallback={null}>
-                    <Servivvese_route />
+                    <ServicesRoute />
                   </Suspense>
                 }
               />
+
               <Route
                 path="/work"
                 element={
                   <Suspense fallback={null}>
-                    <Project_route />
+                    <ProjectRoute />
                   </Suspense>
                 }
               />
+
               <Route
                 path="/contact"
                 element={
                   <Suspense fallback={null}>
-                    <Contact_route />
+                    <ContactRoute />
                   </Suspense>
                 }
               />
@@ -134,7 +140,7 @@ const App = () => {
           </ClickSpark>
         </SmoothScroll>
       </div>
-    </BrowserRouter>
+    </Router>
   );
 };
 

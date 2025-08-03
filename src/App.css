@@ -102,3 +102,10 @@
 .same {
   font-family: "hero";
 }
+
+@media (max-width: 640px) {
+  body {
+    overflow-x: hidden;
+    width: 100vw;
+  }
+}
