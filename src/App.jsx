@@ -2,25 +2,22 @@ import React, { lazy, Suspense, useEffect, useRef } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import gsap from "gsap";
 
-// Sections
+// Components
 import Hero from "./sections/Hero";
 import About from "./sections/About";
+import SmoothScroll from "./components/SmoothScroll";
+import ClickSpark from './components/Spark';
 import Serviceses from "./sections/Servieses";
 import Contact from "./sections/Contact";
 import Footer from "./sections/Foooter";
+import Navbar from "./components/Navbar";
+import Servivvese_route from "./Routes/Services_route"
+import Project_route from "./Routes/Projects_route"
+import Contact_route from "./Routes/Contact_route"
 
-// Components
-import SmoothScroll from "./components/SmoothScroll";
-import ClickSpark from './components/Spark';
-
-// Route Pages
-import ServicesRoute from "./Routes/Services_route";
-import ProjectRoute from "./Routes/Projects_route";
-import ContactRoute from "./Routes/Contact_route";
-
-// Lazy Routes
+// Lazy load
 const Projects = lazy(() => import("./sections/Projects"));
-const AboutRoute = lazy(() => import("./Routes/About_route"));
+const AboutRoute = lazy(() => import("./Routes/About_route")); // If you're using it
 
 const App = () => {
   const loaderRef = useRef(null);
@@ -109,30 +106,27 @@ const App = () => {
                   </Suspense>
                 }
               />
-
               <Route
-                path="/services"
+                path="/servieces"
                 element={
                   <Suspense fallback={null}>
-                    <ServicesRoute />
+                    <Servivvese_route />
                   </Suspense>
                 }
               />
-
               <Route
                 path="/work"
                 element={
                   <Suspense fallback={null}>
-                    <ProjectRoute />
+                    <Project_route />
                   </Suspense>
                 }
               />
-
               <Route
                 path="/contact"
                 element={
                   <Suspense fallback={null}>
-                    <ContactRoute />
+                    <Contact_route />
                   </Suspense>
                 }
               />

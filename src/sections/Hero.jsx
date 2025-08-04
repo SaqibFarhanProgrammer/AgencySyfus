@@ -3,6 +3,7 @@ import "../App.css";
 import { MdOutlineArrowForward } from "react-icons/md";
 import ShinyText from "../components/Button";
 import { Link } from "react-router-dom";
+import "../Media.css"
 
 const Hero = () => {
   return (
